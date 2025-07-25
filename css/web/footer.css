@@ -2,7 +2,7 @@ footer{
     background-color: #aa402b;
     /* 留白取代高度 兩個值:上下 左右 四個值: 上右下左 */
     padding:35px 0 15px 0;
-    background-image:url(/images/notebook.jpg);
+    background-image:#D9842Acf;
     /* 背景圖片不重複 */
     background-repeat:no-repeat;
     /* 背景圖片尺寸 */

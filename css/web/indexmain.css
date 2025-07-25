@@ -1,0 +1,596 @@
+/* 讀取類別 class(.) */
+.BackColor{
+    color:#657C6A;
+    background:linear-gradient(135deg, #EFB05F 0%,white 100%);
+}
+
+#Abouts{
+    padding-bottom: 6.2% ;
+}
+#Abouts > .Title >  h2, #Skills > .Title > h2,#Workss > .Title > h2, #Contacts > .Title > h2 {
+  font-family:"Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  color:#68A073;
+}
+#Abouts > .Title, #Skills > .Title, #Workss > .Title, #Contacts > .Title{
+    /* 留白取代高度 */
+    padding: 5% 0 2% 0;
+    /* 文字置中 */
+    text-align:center;
+    /* 字型大小 1rem=16px 文字單位 em 和 rem 都是彈性單位，若內外層框架同時使用em為單位，內層會疊加外層的尺寸，rem不論是在內外層都不會累加值*/
+    font-size:3.3rem;
+    font-weight:600;
+}
+#Abouts p{
+    text-align:center;
+    font-size:2rem;
+    padding:10px 0;
+    line-height:60px;
+    color:#535D54;
+}
+/* 響應式斷點:設定字的大小 */
+@media screen and (min-width:540px) and (max-width:768px){
+    #Abouts p{
+        font-size:1.5rem;
+    }
+}
+@media screen and (max-width:540px){
+    #Abouts p{
+        font-size:1.25rem;
+        line-height:30px;
+        width:75%;
+        margin:0 auto;
+    }
+}
+#Skills > .Title > h2, #Workss > .Title > h2{
+    color:#821A31;
+}
+
+#Skills{
+    width:100%;
+    margin-bottom: 50px;
+}
+
+/* 子孫選擇器 利用空白設定*/
+/* #IndexMain .Title > h2{
+    color:#a21e1e;
+} */
+/* 子孫選擇器 */
+#IndexMain .LineAll{
+    /* 邊框線條樣式: 下邊框線:線條樣式 線條粗細 線條顏色 */
+    border-bottom-style: solid ;
+    border-bottom-width:4px;
+     
+    width:80px;
+    margin:0 auto;
+    padding-top:35px;
+}
+#IndexMain .LineWhite{
+    border-bottom-color: #68A073;
+}
+#IndexMain .LineRed{
+    border-bottom-color: #821A31;
+}
+/* 技能卡片 */
+#Skills > #Cards {
+    background-color: #657C6A;
+    /* 寬度 */
+    width:100%;
+    /* 區塊置中設定: 邊界:上下為零 左右自動 */
+    margin:0 auto;
+    padding:3% 0;
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    overflow:hidden;
+    position:relative;
+}
+
+
+#Skills >#Cards> .Cards{
+    /* 寬度利用函式不同單位不能不同單位不能計算 calc((外層的總寬度/內層的卡片數量 -間距值)*1倍的單位值 )
+    假設每張卡片的寬度250px每張卡片左右間距值為10px所以每張卡片為260px*3=780px*/
+    width:20%;
+    padding-top:25%;
+    background-color: #F2D486;
+    /* 盒子陰影  x軸 y軸 模糊 顏色*/
+    /* margin: 0 20px; */
+    box-shadow:2px 2px 3px rgba(0,0,0,0.35);
+    position:relative;
+    opacity:1;
+    visibility:visible;
+    display:block;
+    /* transform:translateX(0); */
+    transition:opacity,visibility,transform,0.3s
+}
+#Skills >#Cards> .hideArticle{
+    opacity:0;
+    visibility:hidden;
+    transition:opacity,visibility,0.3s
+}
+#Skills >#Cards>.showArticle{
+    opacity:1;
+}
+#Skills .Cards > .cardContent{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+#Skills .cardContent > .CardPadding {
+    padding: 5px 15px;
+    box-sizing:border-box;
+}
+.cardContent>.CardPadding>img{
+    max-width:100%;
+    height:auto;
+}
+.Cards>.cardContent>.cardCaption{
+    margin-bottom:5%;
+    margin-top:5%;
+    text-align: center;
+    font-size:2.5rem;
+    font-family: "Noto Sans TC";
+    font-weight:600;
+}
+.Cards>.cardContent>.cardComment{
+    font-size:1.8rem;
+    text-align: center;
+} 
+.cardContent > .cardComment  a{
+    text-decoration:none;
+    color:#D9842A;
+}
+#Skills>#Cards>.description{
+    width:40%;
+    position:absolute;
+    top:0;
+    right:25%;
+    margin-top:2%;
+    color:white;
+    opacity:0;
+    transition:opacity,0.3s
+}
+#Cards>.description>.d-caption{
+    font-size:2.5rem;
+    box-sizing:border-box;
+    padding:20px 0;
+    font-weight:600;
+}
+#Cards>.description>.d-comment{
+    font-size:1.25rem;
+    line-height: 1.5;
+}
+#Cards>.description>img{
+    width:50px;
+    float:right;
+    margin-top:3%;
+    cursor: pointer;
+}
+#Skills>#Cards>.showDes{
+    opacity:1;
+}
+.floatArticle{
+    width:100vw;
+    height:100vh;
+    background-color: rgba(0,0,0,0.7);
+    position:fixed;
+    top:0;
+    right:0;
+    z-index:200;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    color:white;
+}
+.floatArticle>.floatImage{
+    width:40%;
+}
+.floatArticle>.floatPassege{
+    margin-top:20px;
+    width:40%;
+}
+.floatArticle>.btnClose{
+    width:30%;
+    height:20px;
+    border:white 2px solid;
+    border-radius:30px;
+    text-align:center;
+    margin-top:5%;
+}
+.floatArticle>.btnClose:hover{
+    background-color: white;
+    color:#000;
+}
+.floatArticle>.floatPassege>h3{
+    font-size:2.5rem;
+    margin-bottom:3%;
+}
+.floatArticle>.floatPassege>p{
+   line-height:1.3;
+}
+@media(min-width:996px) and (max-width:1200px){
+    .Cards>.cardContent>.cardCaption{
+        margin-bottom:3%;
+        margin-top:5%;
+        font-size:2rem;
+    }
+    .Cards>.cardContent>.cardComment{
+        font-size:1.3rem;
+    }
+}
+@media screen and (min-width:768px) and (max-width:996px){
+    #Skills >#Cards> .Cards{
+        width:35%;
+        margin:20px 0;
+        padding-top:43.75%;
+    }
+    .Cards>.cardContent>.cardCaption{
+        font-size:3rem;
+    }
+    .Cards>.cardContent>.cardComment{
+        font-size:2rem;
+    }
+}
+
+@media screen and (max-width:768px){
+    #Skills >#Cards> .Cards{
+        width:55%;
+        margin:20px auto;
+        padding-top:68.75%;
+    }
+    .Cards>.cardContent>.cardCaption{
+        font-size:3rem;
+    }
+    .Cards>.cardContent>.cardComment{
+        font-size:2rem;
+    }
+    .floatArticle>.floatImage{
+    width:50%;
+    }
+    .floatArticle>.floatPassege{
+    width:50%;
+    }
+}
+@media(max-width:540px){
+    .Cards>.cardContent>.cardCaption{
+        font-size:1.75rem;
+    }
+    .Cards>.cardContent>.cardComment{
+        font-size:1.3rem;
+    }
+    .floatArticle>.floatImage{
+    width:60%;
+    }
+    .floatArticle>.floatPassege{
+    width:60%;
+    }
+}
+/* 作品集 */
+
+#Workss{
+    /* 背景圖片不重複 */
+    background-repeat:no-repeat;
+    /* 背景圖片尺寸 */
+    background-size:cover;
+    /* 背景圖片定位點 */
+    background-position:center;
+    background-attachment: fixed;
+
+}
+#Workss > .WorksItems{
+    
+    width:70%;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+}
+
+#Workss > .WorksItems > .Work{
+    width:30%;
+    padding-top:15%;
+    margin-bottom:20px;
+    position: relative;
+    background-size: cover;
+    
+}
+.Work > a {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    text-decoration:none;
+    display:block;
+    text-align:center;
+    font-size:1.5rem;
+    color:#fff;
+    background-size:cover;
+    background-position:center;
+    
+}
+.Work >a >span{
+    
+  margin-top:20%;
+   display:block; 
+}
+
+.Work > a:hover {
+    color:#000;
+    text-decoration:none;
+    display:block;
+    text-align:center;
+    background-color:rgba(255, 255, 255, 0.35);
+    
+}
+.Work > a > span{
+    color:transparent;
+}
+ #bigImages{
+    position:fixed;
+    z-index:100;
+    background-color:rgba(0,0,0,0.8);
+    border-radius: 20px;
+    border:3px #fff solid;
+    width:45%;
+    height:80vh;
+    max-height: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top:15%;
+    right:25%;
+    transform:scale(0);
+    transition:0.2s;
+}
+#bigImages.imagePop{
+    transform:scale(1);
+}
+ #bigImages >.close{
+    /* padding:10px; */
+    position:absolute;
+    right:0;
+    top:0;
+    cursor: pointer;
+}
+
+ #bigImages >img{
+    width:75%;
+    height:auto;
+    margin-top:4%;
+}
+#bigImages>h1{
+    color:#fff;
+    font-size:2rem;
+}
+.WorksItems > #bigImages >a{
+    display: block;
+    margin:2% 0;
+    font-size:1.5rem;
+    text-decoration: none;
+    color:#fff;
+}
+.popWindow{
+    width:100%;
+    height:100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    /* background-color: #657C6A; */
+}
+@media screen and (min-width:768px) and (max-width:996px){
+    #Workss > .WorksItems > .Work{
+        width:45%;
+        padding-top:22.5%;
+    }
+    .WorksItems > #bigImages{
+        width:67.5%;
+        right:16.6%;
+    }
+    #bigImages>h1{
+    color:#fff;
+    font-size:1.75rem;
+}
+}
+
+@media screen and (max-width:768px){
+    #Workss > .WorksItems > .Work{
+        width:80%;
+        padding-top:40%;
+        margin:0 auto 20px;
+    }
+    .WorksItems > #bigImages{
+        width:80%;
+        right:10%;
+    }
+   .WorksItems > #bigImages >a{
+        font-size: 1rem;
+    }
+    #bigImages>h1{
+    color:#fff;
+    font-size:1rem;
+}
+}
+/* 表單 */
+#Contacts{
+    /* 底部 留白 */
+    padding-bottom:30px;
+    width:100%;
+}
+#Contact{
+    color:#535D54;
+}
+#Contacts > #Contact{
+    /* 寬度 */
+    width:598.4px;
+    /* 邊界 */
+    margin: 0 auto ;
+    /* 留白 */
+    padding:10px;
+    /* 框線:  */
+    border:double 8px #fff;
+    /* 總寬度不變 */
+    box-sizing: border-box;
+}
+
+#Contacts > #Contact > div{
+    margin-bottom: 15px;
+}
+
+#Contact > div > p{
+    padding:5px 0;
+    font-size:1.15rem;
+}
+/* 屬性選擇器 */
+#Contact > div >input[type="text"],#Contact > div >input[type="tel"],#Contact > div >input[type="email"]{
+    width:95%;
+    /* 留白取代高度 */
+    padding:10px;
+    box-sizing:border-box;
+    font-size: 18px;
+}
+#Contact > div > label{
+    font-size:1.25rem;
+}
+#Contact .option > label{
+    font-size:1.25rem;
+}
+
+#Contact input[type="radio"]{
+    width:15px;
+    height:15px;
+}
+/* 多行文字方塊 html(標籤屬性 cols="n"設定多行文字方塊的寬度n為字元數
+rows="n"設定多行文字方塊的高度，n為列數
+若設定最大或最小的高寬度，上述屬性將無作用*/
+#Contact>.message{
+    text-align: center;
+}
+#Contact > div > textarea{
+    /* 最大寬度 */
+    max-width:93.6%;
+    /* 最小寬度 */
+    min-width:93.6%;
+    /* 最大高度 */
+    max-height:275px;
+    /* 最小高度 */
+    min-height: 275px;
+    /* box-sizing: border-box; */
+    padding:10px;
+    margin:0 auto;
+}
+
+#Contact > p{
+    width:200px;
+    margin:0 auto;
+    display:flex;
+    justify-content: space-around;
+}
+
+#Contact >p >input[type="submit"],#Contact >p >input[type="reset"]{
+    font-size: 18px;
+    width:90px;
+    height:30px;
+}
+.invalid{
+    border-color:red;
+}
+#Contacts>.messageSend{
+    width:100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:fixed;
+    top:0;
+    left:0;
+}
+#Contacts>.messageSend>.sendWindow{
+    width:45%;
+    border:3px solid #fff;
+    border-radius: 20px;
+    height:40vh;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.8);
+    position: relative;
+}
+.messageSend>.sendWindow>p{
+    color:#fff;
+    font-size:1.5rem;
+}
+.sendWindow>div{
+    position: absolute;
+    top:0;
+    right: 0;
+    cursor:pointer;
+}
+@media screen and (min-width:768px) and (max-width:996px){
+    #Contact>div>p{
+        font-size:1.75rem;
+       text-align:center;
+    }
+    #Contact > .inputbar{
+        text-align: center;
+    }
+    #Contact input[type="radio"]{
+        width:20px;
+        height:20px;
+    }
+    .label{
+        font-size:1.75rem;
+    }
+
+    .options{
+        display:flex;
+        justify-content: space-between;
+    }
+    #Contacts>.messageSend>.sendWindow{
+    width:68%; 
+}
+}
+
+@media screen and (max-width:768px){
+    #Contacts > #Contact{
+        width:100%;
+    }
+    #Contact>div>p{
+        font-size:1.75rem;
+       text-align:center;
+    }
+    #Contact > .inputbar{
+        text-align: center;
+    }
+    #Contact input[type="radio"]{
+        width:20px;
+        height:20px;
+    }
+    .label{
+        font-size:1.75rem;
+    }
+
+    .options{
+        display:flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+    }
+    .options>label{
+        margin:2.5% 0;
+    }
+    #Contacts>.messageSend>.sendWindow{
+        width:68%; 
+    }
+    .messageSend>.sendWindow>p{
+        font-size:1.25rem;
+}
+}

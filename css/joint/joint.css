@@ -1,0 +1,13 @@
+/* 通用選擇器(*) 涉及到重要聲明時!important*/
+/* 自型連結設定，需要寫在body之內，才會有最大作用 */
+body{
+  font-family:"Noto Sans TC", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+img{
+  width:100%;
+  height:auto;
+}

@@ -1,0 +1,352 @@
+/* 元素選擇器 */
+/* 當 html 中有相同的標籤時，為了區別不同的作用，需要利用id或是class(類別)來命名；若標籤會被javascript所呼叫使用 ，最好用id來命名，若是不會被javascript所呼叫，可以考慮class，或是用class來命名*/
+ *{
+    /* outline:solid 1px #000; */
+}
+
+header{
+    /* 利用色塊方式來定位 */
+    /* 背景顏色 */
+    background-color:#657C6A;
+}
+
+/* 後代選取器 最多指定三階*/
+/* 彈性佈局:自動將標籤列為一整行，需要再要排列標籤的父框架(標籤)才有作用 */
+header > section{
+    /* 寬度 */
+    width:100%;
+    /* 高度 */
+    height:70px;
+    /* 設定box邊界 標籤置中:上下為0左右自動 */
+    margin: 0 auto;
+     /* 顯示彈性佈局 */
+     display:flex;
+     /* 水平對齊(行) */
+     justify-content:space-between;
+     /* 垂直對齊(高) 單行為align-items*/
+     align-items:center;
+     color:#ffffff;
+     /* 定位點:停佇 */
+     position:fixed;
+     /* 對齊:向上 */
+     top:0;
+     z-index:99;
+    background-color: #D9842Acf;
+}
+
+header > section > #navBar{
+    width:595px;
+    margin-right: 50px;
+}
+
+/* id選擇器需要被javascript控制或是同一個框架之內有相同的標籤 */
+#NavContent > nav > #MenuContent{
+    display:flex;
+    justify-content: space-around;
+}
+/* 學習程式從結果論往回推過程 */
+#NavContent > #Logo > a{
+    font-family:"Monsieur La Doulaise";
+    font-weight:400;
+}
+#MenuContent>li>a{
+    /* 文字顏色 */
+    color:#ffffff;
+    text-decoration:none;
+    /* 字型大小 網路的字型大小預設為16px */
+    font-size:24px;
+}
+
+header > section > h1{
+    /* 字型大小 */
+    font-size: 2rem;
+   
+    /* 邊界 */
+    margin-left:150px;
+}
+/* 漢堡選單的樣式 */
+header #burgerMenu{
+    display:none;
+    position:fixed;
+    right:0;
+    top:0;
+    z-index:200;
+    width:100%;
+}
+#burgerMenu > .menu{
+    list-style:none;
+    clear:both;
+    background-color:#000;
+    max-height:0;
+    overflow:hidden;
+    transition:all 0.3s ease-out;
+}
+#burgerMenu > .menu a{
+    text-decoration:none;
+    display: block;
+    text-align: center;
+    box-sizing:border-box;
+    padding: 30px 0 ;
+    color:#fff;
+    font-size:2rem;
+}
+#burgerMenu > .menu a:hover{
+    background-color: #fff;
+    color:#000;
+}
+#burgerMenu > input{
+    display:none;
+}
+header #burgerMenu label{
+    width:50px;
+    float:right;
+    margin-bottom: 5px;
+    margin-top:10px;
+    margin-right:10px;
+    cursor:pointer;
+}
+#burgerMenu > input:checked ~.menu{
+    max-height:500px;
+}
+
+/* 廣告區 * html 的img屬性 alt 為圖片路徑錯誤時的替代文字 title當滑鼠放置在圖片上會出現的文字*/
+header > #Carousel{
+    /* 邊界-上 */
+    margin:70px auto 0;
+    width:80%;
+    /* 設定按鈕定位的父物件 相對定位*/
+    position: relative;
+    background:#F2D486;
+    padding-top:2.5%; 
+    padding-bottom:5%;
+}
+
+/* 隱藏圖片 */
+header>#Carousel>.CarouselImg{
+/* 因為要製作淡入和淡出動畫故使用透明度 */
+    width:100%; 
+    /* height:100%; */
+    /* max-height:100%; */
+    /* display:flex;
+    justify-content: center;
+    align-items: center; */
+    position: relative;
+    top:0;
+    left:0;
+    right:0;
+    
+    opacity:1;
+    /* 動畫 */
+    transition:opacity 1s ease-in-out;
+    /* background-color: aqua; */
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+.CarouselImg>.carouselBackground>.hideImg{
+    position:absolute;
+    width:45%;
+    /* margin-top:8%; */
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    opacity:0;
+    transition:opacity,1s;
+}
+.carouselBackground{
+    width:100%;
+    background:black;
+    padding:16.89% 0;
+    position:relative;
+    /* margin-top:5%; */
+}
+.CarouselImg>.carouselBackground>.showImg{
+    opacity:1;
+}
+header>#Carousel>.carouselLabel{
+    display:flex;
+    position:absolute;
+    bottom:3%;
+    left:50%;
+    transform:translateX(-50%);
+}
+#Carousel>.carouselLabel>div{
+    width:50px;
+    height:10px;
+    background-color: white;
+    margin:0 2%;
+    cursor: pointer;
+}
+#Carousel>.CarouselImg>.carouselBar{
+    display:flex;
+}
+.CarouselImg>.carouselBar>p{
+    background-color: wheat;
+    margin:0 0 3% 0;
+    padding:25px 0 25px 35px;
+    width:55%;
+    font-size:1.25rem;
+}
+/* 設定第一張圖片可以看見 */
+header > #Carousel >.active{
+    opacity:1;
+}
+
+/* 按鈕排列在圖片上方 */
+.CarouselImg>.carouselBackground>.controls{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:100%;
+    display:flex;
+    /* 對其內容:均分 */
+    justify-content:space-between;
+}
+/* 按鈕樣式 */
+.carouselBackground>.controls>div{
+    /* 50%透明度背景顏色 */
+    background-color:rgba(217,132,42,0.5);
+    /* 文字顏色 */
+    color:white;
+    /* 隱藏框線隱藏框線 */
+    border:none;
+    padding:2%;
+    border-radius:50%;
+    cursor:pointer;
+    margin:0 1%;
+    position:relative;
+    transition:background-color,0.5s;
+}
+.controls>div>img{
+    position: absolute;
+    left:50%;
+    right:0;
+    top:50%;
+    width:50px;
+    transform:translate(-50%,-50%); 
+    width:50%;  
+}
+#NavContent > h1 > a{
+    color:#fff;
+    /* 取消文字底線樣式 */
+    text-decoration:none;
+}
+.carouselBackground>.controls>div:hover{
+    background-color:#D9842A;
+}
+.CarouselImg>.carouselBar>.triangle{
+    width:5%;
+    height:70px;
+    background-color: wheat;
+    clip-path: polygon(0% 0%,0% 100%,100% 50%);
+}
+/* 響應式*/
+@media screen and (min-width:996px) and (max-width:1200px){
+    header > section{
+        justify-content:center;
+    }
+
+    header > section > h1{
+        width:25%;
+        /* 邊界 */
+       
+        margin-right:3%;
+    }
+   
+}
+
+
+
+@media screen  and (max-width:996px){
+
+
+    header > section > #navBar{
+         display:none;
+         margin-right:1%;
+    }
+
+    header  #burgerMenu{
+        display:block;
+    }
+
+    header > section > h1{
+
+        /* 邊界 */
+        margin-left:3%;
+        font-size:1.75rem;
+       
+    }
+}
+@media(max-width:960px){
+    .CarouselImg>.carouselBar>p{
+        padding:20px 0 20px 28px;
+        font-size:1rem;
+    }
+    .CarouselImg>.carouselBar>.triangle{
+        width:5%;
+        height:56px;
+    }
+    .carouselBackground>.controls>div{ 
+    padding:4%;
+}
+}
+@media(max-width:768px){
+    .CarouselImg>.carouselBar>p{
+        width:100%;
+        padding:15px 0 15px 0px;
+        font-size:0.75rem;
+    }
+    .CarouselImg>.carouselBar>.triangle{
+       display:none;
+    }
+    .carouselBackground>.controls>div{ 
+    padding:5%;
+}
+}
+
+@media screen and (max-width:540px){
+/* 文字編排跳正padding和margin */
+ .CarouselImg>.carouselBar>p{
+        padding:2% 0 2% 0;
+        font-size:0.75rem;
+        margin-top:-2%;
+}
+/*輪播燈示取消*/
+header>#Carousel>.carouselLabel{
+    display:none;
+}
+/*圖示加大*/
+.CarouselImg>.carouselBackground>.hideImg{
+    position:absolute;
+    width:85%;
+}
+/* 輪播面積加大 */
+header > #Carousel{
+    /* 邊界-上 */
+    width:100%;
+}
+.carouselBackground{
+    /* width:100%; */
+    /* background:black; */
+    padding:31.9% 0;
+    /* position:relative; */
+    /* margin-top:5%; */
+}
+.carouselBackground>.controls>div{
+    /* 50%透明度背景顏色 */
+    background-color:transparent;
+    /* 文字顏色 */
+    /* color:white;
+    /* 隱藏框線隱藏框線 */
+    border:none; 
+    padding:10%;
+    /* border-radius:50%;
+    cursor:pointer;
+    margin:0 1%;
+    position:relative;
+    transition:background-color,0.5s; */
+}
+.carouselBackground>.controls>div:hover{
+    background-color:transparent;
+}
+} 

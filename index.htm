@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oldman作品集</title>
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+   <article id="article">
+<!-- 表頭 -->
+  <article class="floatArticle"  v-show="floatImage===true">
+        <div class="floatImage">
+            <img :src="skillDescript[showIndex].img" alt="">
+         </div>
+         <div class="floatPassege">
+             <h3>
+                {{skillDescript[showIndex].cat}}
+             </h3>
+             <p>
+              {{skillDescript[showIndex].content}}
+             </p>
+         </div>
+         <div class="btnClose" @click="closeFloat">
+            <b>close</b>
+         </div>
+    </article>
+    <header ref="top">
+        <section id="NavContent">
+            <h1 id="Logo">
+               <a href="#" @click.prevent="scrollPage('top')"> Oldman Portofolio</a>
+            </h1>
+            <!-- 導覽列 -->
+            <nav id="navBar">
+                <ul id="MenuContent">
+                    <!-- 一頁式的內部連結 錨點 連結 = 要連結目的地的ID名稱-->
+                    <li v-for="item in menuItems" :key="item.text" @click.prevent="scrollPage(item.scroll)">
+                        <a href="#" >{{item.text}}</a>
+                    </li>
+                </ul>
+            </nav>
+            
+        </section>
+        <!-- 漢堡選單 -->
+        <nav id="burgerMenu">
+            <label for="switch"><img src="images/icon/burgerIcon.svg"></label>
+            <input type="checkbox" id="switch">
+            <ul class="menu">
+                <li v-for="link in menuItems" :key="link.id"><a href="#" @click.prevent="phoneScroll(link.scroll)">{{link.text}}</a></li>
+            </ul>
+        </nav>
+        <!-- 輪播 -->
+         <ul id="Carousel" >
+            <li :id="carouselStyle.id" class="CarouselImg" >
+                <div class="carouselBar">
+                    <p>{{carouselStyle.text}}</p>
+                    <div class="triangle"></div>
+                </div>
+                <div class="carouselBackground">
+                     <img :src="images.image" v-for="(images,index) in Carousel" :key="images.id" :class="['hideImg',{showImg:index===currentIndex}]">
+                     <div class="controls">
+                        <div id="prevBtn" @click="prevSlide">
+                            <img src="images/icon/back.png" alt="previouseSlide">
+                        </div>
+                        <div id="nextBtn"@click="nextSlide">
+                            <img src="images/icon/front.png" alt="nextSlide">
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="carouselLabel" >
+                <div v-for="(item,index) in Carousel" :style="{backgroundColor:index===currentIndex?'#D9842Acf':''}":key="item.id" @click="labelSelect(index)" ></div>
+            </li>
+            
+         </ul>
+         
+         <div id="MessageText"></div>
+    </header>
+
+    <main id="IndexMain">
+<!-- 關於 -->
+        <section id="Abouts" class="BackColor" ref="about">
+            <div class="Title">
+                <h2>ABOUT</h2>
+                <p class=" LineAll LineWhite"></p>
+            </div>
+            <ul>
+                <p>
+                    大家好我是老人~
+                    之前是標籤機廠商的研發助理<br>
+                    離職後由於想要一圓前端工程師的夢想<br>
+                    特別建了一個屬於自己的網站<br>
+                    這裡放了我的各式各樣的作品集，供人參觀<br>
+                    歡迎!<br>
+                </p>
+            </ul>
+        </section>
+<!-- 技能 -->
+        <section id="Skills" ref="skill">
+            <div class="Title">
+                <h2>SKILL</h2>
+                <p class="LineAll LineRed"></p>
+            </div>
+            <div id="Cards">
+                <div class="description" :class="showDescript" >
+                    <img src="images/icon/cross.png" alt="close" title="關閉" @click="closeDsecript">
+                    <h2 class="d-caption">{{skillDescript[showIndex].cat}}</h2>
+                    <p class="d-comment">{{skillDescript[showIndex].content}}</p>
+                </div>
+                <article class="Cards" :class="hideArticleA" :style="{transform:`translateX(${this.articleMoving[0]}%)`}">
+                    <div class="cardContent">
+                        <p class="CardPadding">
+                            <img src="images/Skills/pic02.jpg" alt="">
+                        </p>
+                        <h3 class="CardPadding cardCaption">UI設計</h3>
+                        <ul class="CardPadding cardComment">
+                            <li><a href="#" class="click" @click.prevent="articleDisplay(0)">技能說明</a></li>
+                        </ul>
+                    </div>
+                </article>
+                    <article class="Cards" :class="hideArticleB" :style="{transform:`translateX(${this.articleMoving[1]}%)`}">
+                        <div class="cardContent">
+                            <p class="CardPadding">
+                                <img src="images/Skills/pic01.jpg" alt="">
+                            </p>
+                            <h3 class="CardPadding cardCaption">前端三本柱</h3>
+                            <ul class="CardPadding cardComment">
+                                <li><a href="#" class="click" @click.prevent="articleDisplay(1)">技能說明</a></li>
+                            </ul>
+                        </div>
+                    </article>
+                    <article class="Cards" :class="hideArticleC" :style="{transform:`translateX(${this.articleMoving[2]}%)`}" >
+                        <div class="cardContent">
+                            <p class="CardPadding">
+                                <img src="images/Skills/pic03.jpg" alt="">
+                            </p>
+                            <h3 class="CardPadding cardCaption">Vue.js</h3>
+                            <ul class="CardPadding cardComment">
+                                <li><a href="#" class="click" @click.prevent="articleDisplay(2)">技能說明</a></li>
+                            </ul>
+                        </div>
+                    </article>
+                
+            </div>
+        </section>
+<!-- 作品集 -->
+        <section id="Workss" ref="work" style="background-image:url('images/notebook.jpg')">
+            <div class="Title">
+                <h2>WORKS</h2>
+                <p class="LineAll LineRed"></p>
+            </div>
+            <ol class="WorksItems">
+                <li v-for="(work,key) in works" class="One Work">
+                    <a @click="showImages(key)" href="javascript:;" :style="workBackground(work)"><span>作品名稱</span></a>
+                </li> 
+                <div class="popWindow" v-if="bigImages"></div>
+                    <div id="bigImages" :class="imagePop">
+                        <span @click="showImages" class="close"><img src="images/icon/cross.png" alt=""></span>
+                        <h1>{{works[workIndex].workTitle}}</h1>
+                        <img :src="works[workIndex].image" alt=""> 
+                        <!-- <p class="">大圖</p>  -->
+                        <a :href="works[workIndex].link">{{works[workIndex].link===''?'':'連結'}}</a>
+                    </div>  
+            </ol>
+        </section>
+<!-- 表單聯絡 -->
+        <section id="Contacts" class="BackColor" ref="contact">
+            <div class="Title">
+                <h2>CONTACT</h2>
+                <p class="LineAll LineWhite"></p>
+            </div>
+            <form  id="Contact" @submit.prevent="submitCheck">
+                <div class="inputbar">
+                    <p ><label  for="UserName">*姓名&nbsp;<span style="color:red" v-if="warningText(0)">姓名欄不能為空</span></label></p>
+                    <input type="text" name="name" id="UserName" placeholder="請輸姓名"  v-model.trim="submitData[0].input" :class="warning(0)">
+                </div>
+
+                <div class="inputbar">
+                    
+                    <p><label for="TelNumber">＊聯絡電話&nbsp;<span style="color:red;" v-if="warningText(1)">連絡電話不能為空</span><span style="color:red" v-else-if="notANumber">不是號碼</span></label></p>
+                    <input type="tel" name="phoneNumber" id="TelNumber"placeholder="0800-000-000"  v-model.number="submitData[1].input" :class="warning(1)" >
+                </div>
+
+                <div class="inputbar">
+                    <p><label for="Email">＊聯絡信箱&nbsp;<span style="color:red;" v-if="warningText(2)">聯絡信箱不能為空</span></label></p>
+                    <input type="email" name="mailBox" id="Email" placeholder="請輸入可聯絡的電子信箱" v-model="submitData[2].input" :class="warning(2)">
+                </div>
+
+                <div>
+                    <p>
+                        詢問主旨<span style="color:red" v-if="warningText(3)">請選擇一個選項</span>
+
+                    </p>
+                        <div class="options">
+                            <label class="label"  for="GraphicDesign">
+                                <input type="radio" name="Question" id="GraphicDesign" vlaue="GraphicDesign" v-model="submitData[3].input">平面設計
+                            </label>
+                            <label class="label" for="WebDesign">
+                                <input type="radio" name="Question" id="WebDesign" value="WebDesign" v-model="submitData[3].input">網頁設計
+                            </label>
+                            <label  class="label" for="AudiovisualDesign">
+                                <input type="radio" name="Question" value="AudiovisualDesign" id="AudiovisualDesign" v-model="submitData[3].input">影音設計
+                            </label>
+                        </div>
+                        
+                    
+                </div>
+
+                <div class="message">
+                    <p class="label"><label  for="Illustrate">詳細說明：</label></p>
+                    <textarea name="description" id="Illustrate" cols="30" rows="10" v-model.trim="submitData[4].input" :class="warning(4)"></textarea >
+                </div>
+
+                <p>
+                    <input type="submit" value="確認送出">
+                    <input type="reset" value="重新設定">
+                </p>
+            </form>
+            <div class="messageSend" v-if="ok===true">
+                <div class="sendWindow">
+                    <div><img src="images/icon/cross.png" alt="關閉" @click="messageClose"></div>
+                    <p>訊息已送出</p>
+                </div>
+            </div>
+        </section> 
+    </main>
+
+    <footer>
+       <section id="FooterContent">
+            <nav id="SubNav"></nav>
+            <!-- 段落(p)之內不能有標題(h1~h6):但標題之內可以有段落 -->
+            <h5>
+                <p>
+                    &copy; 2024-<span id="Year"></span> Oldman All Rights Reserved
+                </p>
+                <p>
+                    請尊重智慧財產權 著作權為 Oldman 轉載必究
+                </p>
+            </h5>
+       </section>
+    </footer>
+</article> 
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" ></script>
+<script type="module" src="vue/vue.js"></script>
+</body>
+</html>

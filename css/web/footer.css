@@ -1,0 +1,24 @@
+footer{
+    background-color: #aa402b;
+    /* 留白取代高度 兩個值:上下 左右 四個值: 上右下左 */
+    padding:35px 0 15px 0;
+    background-image:url(/images/notebook.jpg);
+    /* 背景圖片不重複 */
+    background-repeat:no-repeat;
+    /* 背景圖片尺寸 */
+    background-size:cover;
+    /* 背景圖片定位點 */
+    background-position:center;
+    
+
+}
+#FooterContent > h5{
+    /* 文字對齊 */
+    text-align: center;
+    color:#ffffff;
+}
+#FooterContent > h5 > p{
+    /* 邊界 */
+    margin-bottom:10px;
+    text-transform: uppercase;
+}

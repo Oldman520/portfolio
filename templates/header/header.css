@@ -1,0 +1,142 @@
+/* 元素選擇器 */
+/* 當 html 中有相同的標籤時，為了區別不同的作用，需要利用id或是class(類別)來命名；若標籤會被javascript所呼叫使用 ，最好用id來命名，若是不會被javascript所呼叫，可以考慮class，或是用class來命名*/
+header{
+    /* 利用色塊方式來定位 */
+    /* 背景顏色 */
+    background-color:#a21e1e;
+}
+
+/* 後代選取器 最多指定三階*/
+/* 彈性佈局:自動將標籤列為一整行，需要再要排列標籤的父框架(標籤)才有作用 */
+header > section{
+    /* 寬度 */
+    width:100%;
+    /* 高度 */
+    height:70px;
+    /* 設定box邊界 標籤置中:上下為0左右自動 */
+    /* margin: 0 auto; */
+     /* 顯示彈性佈局 */
+     display:flex;
+     /* 水平對齊(行) */
+     justify-content:space-between;
+     /* 垂直對齊(高) 單行為align-items*/
+     align-items:center;
+     color:#ffffff;
+     /* 定位點:停佇 */
+     position:fixed;
+     /* 對齊:向上 */
+     top:0;
+     z-index:99;
+    background-color: #a21e1ecf;
+}
+
+header > section > nav{
+    width:35%;
+    margin-right:10%;
+}
+
+
+/* id選擇器需要被javascript控制或是同一個框架之內有相同的標籤 */
+#NavContent > nav > #MenuContent{
+    display:flex;
+    justify-content: space-around;
+}
+/* 學習程式從結果論往回推過程 */
+
+#MenuContent>li>a{
+    /* 文字顏色 */
+    color:#ffffff;
+    text-decoration:none;
+    /* 字型大小 網路的字型大小預設為16px */
+    font-size:24px;
+}
+
+header > section > h1{
+    /* 字型大小 */
+    font-size: 32px;
+   
+    /* 邊界 */
+    margin-left:15%;
+}
+
+/* 廣告區 * html 的img屬性 alt 為圖片路徑錯誤時的替代文字 title當滑鼠放置在圖片上會出現的文字*/
+header > #Carousel{
+    /* 邊界-上 */
+    margin-top:70px;
+    width:100%;
+    /* 設定按鈕定位的父物件 相對定位*/
+    position: relative;
+    background-color:orange;
+}
+
+/* 隱藏圖片 */
+header>#Carousel>.CarouselImg{
+/* 因為要製作淡入和淡出動畫故使用透明度 */
+    width:100%;
+    height:100%;
+    max-height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    opacity:0;
+    /* 動畫 */
+    transition:opacity 1s ease-in-out;
+    background-color: aqua;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+header>#Carousel>#nullBannerBox{
+    opacity:0;
+}
+header>#Carousel>#One{
+    background-image: url(/images/banner/001.jpg);
+   
+}
+header>#Carousel>#Two{
+    background-image: url(/images/banner/002.jpg);
+    
+}
+header>#Carousel>#Three{
+    background-image: url(/images/banner/003.jpg);
+    
+}
+#Carousel>.CarouselImg>p{
+    width:500px;
+    background-color: wheat;
+    margin:0 auto;
+    position:absolute;
+    z-index:10;
+    
+}
+/* 設定第一張圖片可以看見 */
+header > #Carousel >.active{
+    opacity:1;
+}
+
+/* 按鈕排列在圖片上方 */
+header > #Carousel > .controls{
+    position:absolute;
+    top:50%;
+    width:100%;
+    display:flex;
+    /* 對其內容:均分 */
+    justify-content:space-between;
+}
+/* 按鈕樣式 */
+#Carousel>.controls>button{
+    /* 50%透明度背景顏色 */
+    background-color:rgba(0,0,0,0.5);
+    /* 文字顏色 */
+    color:white;
+    /* 隱藏框線隱藏框線 */
+    border:none;
+    padding:10px;
+    cursor:pointer;
+}
+#NavContent > h1 > a{
+    color:#fff;
+    /* 取消文字底線樣式 */
+    text-decoration:none;
+}

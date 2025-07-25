@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oldman作品集</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <section id="NavContent">
+            <h1 id="Logo">
+               <a href="index.htm"> Oldman作品集</a>
+            </h1>
+            <nav>
+                <ul id="MenuContent">
+                    <!-- 一頁式的內部連結 錨點 連結 = 要連結目的地的ID名稱-->
+                    <li id="NavAbout"><a href="#Abouts">關於Oldman</a></li>
+                    <li><a href="#Skills">相關技能</a></li>
+                    <li><a href="#Workss">作品集</a></li>
+                    <li><a href="#Contacts">聯絡表單</a></li>
+                </ul>
+            </nav>
+        </section>
+
+         <ul id="Carousel">
+            <li id="One" class="CarouselImg active">
+                <img src="images/banner/001.jpg" alt="廣告圖片一" title="廣告">
+                <p>廣告文字</p>
+            </li>
+            <li id="Two" class="CarouselImg ">
+                <img src="images/banner/002.jpg" alt="廣告圖片二" title="廣告二">
+                <p>廣告文字</p>
+            </li>
+            <li id="Three" class="CarouselImg">
+                <img src="images/banner/003.jpg" alt="廣告圖片三" title="廣告三">
+                <p>廣告文字</p>
+            </li>
+            <div id="nullBannerBox">
+                <img src="images/banner/001.jpg" alt="">
+                <p>廣告文字
+                </p>
+            </div>
+            <div class="controls">
+                <button id="prevBtn">Prev</button>
+                <button id="nextBtn">Next</button>
+            </div>
+         </ul>
+         
+         <div id="MessageText"></div>
+    </header>
+
+    <main id="IndexMain">
+        <section id="Abouts" class="BackColor">
+            <div class="Title">
+                <h2>ABOUT</h2>
+                <p class=" LineAll LineWhite"></p>
+            </div>
+            <ul>
+                <li>大家好我是老人~</li>
+                <li>之前是標籤機廠商的研發助理</li>
+                <li>離職後由於想要一圓前端工程師的夢想</li>
+                <li>特別建了一個屬於自己的網站</li>
+                <li>這裡放了我的各式各樣的作品集，供人參觀</li>
+                <li>歡迎!</li>
+            </ul>
+        </section>
+
+        <section id="Skills">
+            <div class="Title">
+                <h2>SKILL</h2>
+                <p class="LineAll LineRed"></p>
+            </div>
+            <div id="Cards">
+                <article class="Cards">
+                    <p class="CardPadding">
+                        <img src="" alt="">
+                    </p>
+                    <h3 class="CardPadding">技能名稱</h3>
+                    <ul class="CardPadding">
+                        <li>技能說明</li>
+                        <li>技能說明</li>
+                        <li>技能說明</li>
+                    </ul>
+                </article>
+    
+                <article class="Cards">
+                    <p class="CardPadding">
+                        <img src="" alt="">
+                    </p>
+                    <h3 class="CardPadding">技能名稱</h3>
+                    <ul class="CardPadding">
+                        <li>技能說明</li>
+                        <li>技能說明</li>
+                        <li>技能說明</li>
+                    </ul>
+                </article>
+    
+                <article class="Cards">
+                    <p class="CardPadding">
+                        <img src="" alt="">
+                    </p>
+                    <h3 class="CardPadding">技能名稱</h3>
+                    <ul class="CardPadding">
+                        <li>技能說明</li>
+                        <li>技能說明</li>
+                        <li>技能說明</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+        
+        <section id="Workss">
+            <div class="Title">
+                <h2>WORKS</h2>
+                <p class="LineAll LineRed"></p>
+            </div>
+            <ol class="WorksItems">
+                <li class="One Work">
+                    <a href="javascript:;"><span>作品名稱</span></a>
+                </li>
+                <li class="Two Work">
+                    <a href="javascript:;"><span>作品名稱</span></a>
+                </li>
+                <li class="Three Work">
+                    <a href="javascript:;"><span>作品名稱</span></a>
+                </li>
+                <li class="Four Work">
+                    <a href="javascript:;"><span>作品名稱</span></a>
+                </li>
+                <li class="Five Work">
+                    <a href="javascript:;"><span>作品名稱</span></a>
+                </li>
+                <li class="Six Work">
+                    <a href="javascript:;"><span>作品名稱</span></a>
+                </li>
+                <li class="Seven MrBo Work">
+                    <a href="javascript:;"><span>作品名稱</span></a>
+                </li>
+                <li class="Eight MrBo Work">
+                    <a href="javascript:;"><span>作品名稱</span></a>
+                </li>
+                <li class="Nine MrBo Work">
+                    <a href="javascript:;"><span>作品名稱</span></a>
+                </li>
+            </ol>
+        </section>
+
+        <section id="Contacts" class="BackColor">
+            <div class="Title">
+                <h2>CONTACT</h2>
+                <p class="LineAll LineWhite"></p>
+            </div>
+            <form action="" method="get" id="Contact">
+                <div>
+                    <p><label for="UserName">*姓名：</label></p>
+                    <input type="text" name="" id="UserName" required placeholder="請輸姓名" >
+                </div>
+
+                <div>
+                    <p><label for="TelNumber">＊聯絡電話：</label></p>
+                    <input type="tel" name="" id="TelNumber" required placeholder="0800-000-000">
+                </div>
+
+                <div>
+                    <p><label for="Email">＊聯絡信箱：</label></p>
+                    <input type="email" name="" id="Email" required placeholder="請輸入可聯絡的電子信箱">
+                </div>
+
+                <div>
+                    <p>
+                        詢問主旨
+
+                    </p>
+                        <label for="GraphicDesign">
+                            <input type="radio" name="Question" id="GraphicDesign">平面設計
+                        </label>
+
+                        <label for="WebDesign">
+                            <input type="radio" name="Question" id="WebDesign">網頁設計
+                        </label>
+
+                        <label for="AudiovisualDesign">
+                            <input type="radio" name="Question" id="AudiovisualDesign">影音設計
+                        </label>
+                        
+                    
+                </div>
+
+                <div>
+                    <p><label for="Illustrate">詳細說明：</label></p>
+                    <textarea name="" id="Illustrate" cols="30" rows="10"></textarea>
+                </div>
+
+                <p>
+                    <input type="submit" value="確認送出">
+                    <input type="reset" value="重新設定">
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+       <section id="FooterContent">
+            <nav id="SubNav"></nav>
+            <!-- 段落(p)之內不能有標題(h1~h6):但標題之內可以有段落 -->
+            <h5>
+                <p>
+                    &copy; 2024-<span id="Year"></span> Oldman All Rights Reserved
+                </p>
+                <p>
+                    請尊重智慧財產權 著作權為 Oldman 轉載必究
+                </p>
+            </h5>
+       </section>
+    </footer>
+    <script type="module" src="javascript/javascript.js"></script>
+</body>
+</html>
